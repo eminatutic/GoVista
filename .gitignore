@@ -1,0 +1,10 @@
+# Sistem fajlovi
+.DS_Store
+Thumbs.db
+
+# VS Code konfiguracija
+.vscode/
+
+# Backup fajlovi
+*.bak
+*.tmp
