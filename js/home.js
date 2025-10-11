@@ -1,7 +1,6 @@
 const DESTINATIONS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/destinations";
 const TOURS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/tours";
 
-// home
 function renderTours(tour, destinations) {
 if (!tour) return '';
 const destination = destinations.find(dest => dest.id === tour.destinationId);
@@ -41,13 +40,8 @@ function exploreButton(){
   const exploreBtn = document.getElementById("exploreBtn");
   if (!exploreBtn) return;
   exploreBtn.addEventListener("click",()=>{
-    window.location.href = "/destinations/destinations.html";
+    window.location.href = "destinations.html";
   });
 }
-
-
-// contact
-
-
 loadTours();
 exploreButton();

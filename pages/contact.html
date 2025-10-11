@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | GoVista</title>
+  <link rel="stylesheet" href="../style/contact.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+<div class="wrapper">
+<header class="header">
+  <div class="logo">
+    <img src="logo.png" alt="GoVista Logo" class="logo-img" />
+    <h1>GoVista</h1>
+  </div>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="login.html" id="log-in">Log in</a>
+  </nav>
+</header>
+
+<div class="contact">
+  <div class="contact-card">
+    <div class="contact-info">
+      <h2>Interested in one of our trips?</h2>
+      <p>Found an exciting travel package or have questions about your next adventure? 
+      <br>Send us a message and our team will get back to you as soon as possible!</p>
+
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+          <h3>Our office</h3>
+          <p>28. november, Novi Pazar, Serbia</p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="fas fa-envelope"></i>
+        <div>
+          <h3>Email us</h3>
+          <p>govista@gmail.com</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-phone-alt"></i>
+        <div>
+          <h3>Call us</h3>
+          <p>+381 11 234 5678</p>
+        </div>
+      </div>
+      <div class="social">
+        <h3>Follow us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+   <div class="contact-form">
+  <h2>Send us a message</h2>
+  <form id="contactForm">
+    <div class="input-row">
+      <input type="text" id="fullName" placeholder="Full name" />
+      <small id="fullNameError" class="error-message"></small>
+
+      <input type="text" id="packageName" placeholder="Travel package name" />
+      <small id="packageError" class="error-message"></small>
+    </div>
+
+    <div class="input-row">
+      <input type="tel" id="phoneNumber" placeholder="Phone number" />
+      <small id="phoneError" class="error-message"></small>
+
+      <input type="email" id="email" placeholder="Email" />
+      <small id="emailError" class="error-message"></small>
+    </div>
+
+    <textarea id="message" placeholder="Write your message or describe what you're interested in..." ></textarea>
+    <small id="messageError" class="error-message"></small>
+
+    <button type="submit">Send message</button>
+  </form>
+</div>
+
+
+
+
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 GoVista Travel Agency. All rights reserved.</p>
+</footer>
+</div>
+<script src="../js/contact.js"></script>
+</body>
+</html>

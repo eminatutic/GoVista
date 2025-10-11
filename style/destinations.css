@@ -1,0 +1,166 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: #f6f7fb;
+  color: #333;
+  height: 100%;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+.wrapper {
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column; 
+}
+#log-in{
+  color: #f5a623;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-left: 50px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.222);
+}
+.active {
+  font-weight: bold;
+  color: #0056b3;
+  border-bottom: 2px solid #0056b3;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 20px 60px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: #1e90ff;
+}
+
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #1e90ff;
+}
+
+
+
+.destinations-page {
+  flex: 1;
+  padding: 100px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.destinations-page h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+  gap: 30px;
+}
+
+.destination-card {
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.image-slider {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.image-slider img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: none;
+}
+
+.image-slider img.active {
+  display: block;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+ 
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 10px;
+
+}
+
+.slider-btn.left {
+  left: 10px;
+}
+
+.slider-btn.right {
+  right: 10px;
+}
+
+.destination-info {
+  padding: 25px;
+}
+.destination-info h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #0077b6;
+}
+
+.desc {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.destination-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.destination-details span strong {
+  color: #0077b6;
+}
+
+

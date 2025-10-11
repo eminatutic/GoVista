@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  height: 100%;
+
+
+}
+footer {
+  background: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #666;
+  
+}
+.wrapper {
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column; 
+}
+#log-in{
+  color: #f5a623;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-left: 50px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.222);
+
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 20px 60px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: #1e90ff;
+}
+
+nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #1e90ff;
+}
+
+/* form */
+.login-container {
+  flex: 1; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 100px;
+  /* padding-bottom: 120px; */
+}
+
+.login-box {
+  background: #1e90ff; 
+  border: 2px solid #1c75d8; 
+  border-radius: 16px;
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff; 
+  width: 350px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+
+.login-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-box label {
+  font-weight: 600;
+  text-align: left;
+  color: #e0f0ff; 
+}
+
+.login-box input {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #e0f0ff; 
+  color: #1e3f7f; 
+  font-size: 1rem;
+  text-align: start;
+}
+
+
+.login-box button {
+  margin: 15px auto 0 auto;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #0056b3; 
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 190px;
+  
+}
+
+.login-box button:hover {
+  background: #1e90ff; 
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
