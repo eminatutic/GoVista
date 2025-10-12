@@ -23,7 +23,7 @@ footer {
   border-bottom: 2px solid #0056b3;
 }
 
-/* HEADER */
+/* header */
 header {
   display: flex;
   justify-content: space-between;
@@ -56,11 +56,10 @@ nav a {
   font-weight: 500;
 }
 
-nav a:hover {
+nav a:not(.log-in):hover {
   color: #1e90ff;
 }
-
-#log-in {
+.log-in {
   color: #f5a623;
   font-weight: 800;
   font-size: 1.2rem;
@@ -68,7 +67,7 @@ nav a:hover {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.222);
 }
 
-/* CONTACT CARD */
+/* contact card */
 .contact {
   flex: 1;
   display: flex;

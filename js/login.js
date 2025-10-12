@@ -6,7 +6,6 @@ const usernameError = document.getElementById("username-error");
 const passwordError = document.getElementById("password-error");
 
 const USERS_JSON = "../json/users.json";
-
 let users = [];
 fetch(USERS_JSON)
   .then(res => {
@@ -40,21 +39,16 @@ form.addEventListener("submit", async (e) => {
     return;
   }
 
-  // find user
   const user = users.find(u => u.username === username);
   if (!user) {
     usernameError.textContent = "User not found!";
     return;
   }
-
   try {
-    // hash entered password the same way your users.json was hashed
     const hashedPass = CryptoJS.MD5(password).toString(); 
     if (hashedPass === user.password) {
-      // login success - set localStorage 
       localStorage.setItem("logged_in", "true");
-   
-      window.location.href = "../pages/home.html";
+      window.location.href = "../pages/destinations.html";
     } else {
       passwordError.textContent = "Incorrect password!";
     }

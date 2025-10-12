@@ -36,11 +36,19 @@ async function loadTours() {
 }
 
 
-function exploreButton(){
+function exploreButton() {
   const exploreBtn = document.getElementById("exploreBtn");
   if (!exploreBtn) return;
-  exploreBtn.addEventListener("click",()=>{
-    window.location.href = "destinations.html";
+
+  exploreBtn.addEventListener("click", () => {
+    const loggedIn = localStorage.getItem("logged_in") === "true";
+
+    if (!loggedIn) {
+      alert("You need to log in first!");
+      window.location.href = "../pages/login.html"; 
+    } else {
+      window.location.href = "../pages/destinations.html"; 
+    }
   });
 }
 loadTours();

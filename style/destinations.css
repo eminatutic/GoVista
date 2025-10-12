@@ -18,7 +18,7 @@ footer {
   display: flex;
   flex-direction: column; 
 }
-#log-in{
+.log-in{
   color: #f5a623;
   font-weight: 800;
   font-size: 1.2rem;
@@ -64,10 +64,9 @@ nav a {
   font-weight: 500;
 }
 
-nav a:hover {
+nav a:not(.log-in):hover {
   color: #1e90ff;
 }
-
 
 
 .destinations-page {
@@ -95,6 +94,7 @@ nav a:hover {
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   position: relative;
+
 }
 
 .image-slider {
@@ -118,13 +118,18 @@ nav a:hover {
 .slider-btn {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
- 
   border: none;
   cursor: pointer;
-  font-size: 1.5rem;
-  padding: 10px;
+  font-size: 4rem; 
+  color: #f5a623; 
+  background: none; 
+  padding: 0;
+  transition: ease-in-out 0.3s;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
 
+.slider-btn:hover {
+  transform: scale(1.7);
 }
 
 .slider-btn.left {
@@ -136,7 +141,10 @@ nav a:hover {
 }
 
 .destination-info {
-  padding: 25px;
+   padding: 15px 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 .destination-info h3 {
   font-size: 1.6rem;
@@ -163,4 +171,11 @@ nav a:hover {
   color: #0077b6;
 }
 
+.tour-price {
+  margin-top: 20px;  
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f5a623;
+  text-align: center;
+}
 

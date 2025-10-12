@@ -48,7 +48,7 @@ header {
   font-size: 1.5rem;
   color: #1e90ff;
 }
-#log-in{
+.log-in{
   color: #f5a623;
   font-weight: 800;
   font-size: 1.2rem;
@@ -63,7 +63,7 @@ nav a {
   font-weight: 500;
 }
 
-nav a:hover {
+nav a:not(.log-in):hover {
   color: #1e90ff;
 }
 

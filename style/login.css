@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', sans-serif;
   color: #333;
   height: 100%;
- background: linear-gradient(135deg, #1e90ff, #f5a623, #0056b3);
+  background: linear-gradient(135deg, #1e90ff, #f5a623, #0056b3);
   background-size: 600% 600%;
   animation: gradientBG 10s ease infinite;
 }
@@ -26,7 +26,7 @@ footer {
   display: flex;
   flex-direction: column; 
 }
-#log-in{
+.log-in{
   color: #f5a623;
   font-weight: 800;
   font-size: 1.2rem;
@@ -67,7 +67,7 @@ nav a {
   font-weight: 500;
 }
 
-nav a:hover {
+nav a:not(.log-in):hover {
   color: #1e90ff;
 }
 
@@ -146,7 +146,7 @@ nav a:hover {
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 .error-message {
-  color: rgb(255, 0, 0);
+  color: red;
   text-shadow: #ffffff;
   font-size: 0.9rem;
   margin-top: 2px;
