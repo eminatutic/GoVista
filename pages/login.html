@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GoVista | Discover Your Next Adventure</title>
   <link rel="stylesheet" href="../style/login.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bcryptjs/2.4.3/bcrypt.min.js"></script>
 </head>
 <body>
 
@@ -26,15 +25,18 @@
    <div class="login-container">
     <div class="login-box">
     <h2>LOG IN</h2>
-    <form>
-      <label for="username">USERNAME:</label>
-      <input type="text" id="username" placeholder="Enter your username..." required />
+    <form id="login">
+  <label for="username">USERNAME:</label>
+  <input type="text" id="username" placeholder="Enter your username..." required />
+  <small id="username-error" class="error-message"></small>
 
-      <label for="password">PASSWORD:</label>
-      <input type="password" id="password" placeholder="Enter your password..." required />
+  <label for="password">PASSWORD:</label>
+  <input type="password" id="password" placeholder="Enter your password..." required />
+  <small id="password-error" class="error-message"></small>
 
-      <button type="submit">LOG IN</button>
-    </form>
+  <button type="submit">LOG IN</button>
+</form>
+
 
   </div>
 </div>
@@ -42,6 +44,7 @@
     <p>© 2025 GoVista. All rights reserved.</p>
 </footer>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script src="../js/login.js"></script>
 </body>
 </html>

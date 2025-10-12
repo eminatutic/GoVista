@@ -1,11 +1,17 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #f5f7fa;
   color: #333;
   height: 100%;
+ background: linear-gradient(135deg, #1e90ff, #f5a623, #0056b3);
+  background-size: 600% 600%;
+  animation: gradientBG 10s ease infinite;
+}
 
-
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 footer {
   background: #fff;
@@ -77,8 +83,9 @@ nav a:hover {
 }
 
 .login-box {
-  background: #1e90ff; 
-  border: 2px solid #1c75d8; 
+   background: rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(10px); 
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   padding: 40px 20px;
   text-align: center;
@@ -137,4 +144,11 @@ nav a:hover {
   background: #1e90ff; 
   transform: translateY(-1px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+.error-message {
+  color: rgb(255, 0, 0);
+  text-shadow: #ffffff;
+  font-size: 0.9rem;
+  margin-top: 2px;
+  display: block; 
 }
