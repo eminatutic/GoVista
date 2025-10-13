@@ -8,7 +8,7 @@ function handleLoginLink() {
       e.preventDefault();
       localStorage.removeItem("logged_in");
       handleLoginLink();
-      window.location.reload();
+      window.location.href = "home.html";
     };
   } else {
     loginLink.textContent = "Log In";
@@ -20,15 +20,23 @@ function handleLoginLink() {
 function handleDestinationsAccess() {
   const destinationsLink = document.getElementById("destinations-link");
   if (!destinationsLink) return;
+
   destinationsLink.addEventListener("click", function (e) {
     const loggedIn = localStorage.getItem("logged_in") === "true";
     if (!loggedIn) {
       e.preventDefault();
-      alert("You need to log in first!");
-      window.location.href = "login.html";
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops!',
+        text: 'You need to log in first!',
+        confirmButtonText: 'Go to login'
+      }).then(() => {
+        window.location.href = "login.html";
+      });
     }
   });
 }
+
 
 
   handleLoginLink();

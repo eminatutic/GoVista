@@ -44,12 +44,19 @@ function exploreButton() {
     const loggedIn = localStorage.getItem("logged_in") === "true";
 
     if (!loggedIn) {
-      alert("You need to log in first!");
-      window.location.href = "../pages/login.html"; 
+      Swal.fire({
+        icon: 'warning',
+        title: 'Oops!',
+        text: 'You need to log in first!',
+        confirmButtonText: 'Go to login'
+      }).then(() => {
+        window.location.href = "../pages/login.html";
+      });
     } else {
-      window.location.href = "../pages/destinations.html"; 
+      window.location.href = "../pages/destinations.html";
     }
   });
 }
+
 loadTours();
 exploreButton();
