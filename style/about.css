@@ -64,7 +64,7 @@ nav a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 nav a:not(.log-in):hover {
@@ -244,7 +244,7 @@ nav a {
 
 
 .about {
-    padding: 120px 15px 20px 15px; 
+    padding: 80px 15px 20px 15px; 
   }
 
 .about-content {

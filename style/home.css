@@ -59,7 +59,7 @@ nav a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 nav a:not(.log-in):hover {
@@ -101,12 +101,12 @@ nav a:not(.log-in):hover {
 }
 
 .hero h2 {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   margin-bottom: 15px;
 }
 
 .hero p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 25px;
 }
 
@@ -117,7 +117,7 @@ nav a:not(.log-in):hover {
   padding: 12px 30px;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.1rem;
   transition:  transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -401,3 +401,5 @@ nav a {
 }
 
 }
+
+
