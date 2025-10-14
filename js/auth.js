@@ -8,7 +8,7 @@ function handleLoginLink() {
       e.preventDefault();
       localStorage.removeItem("logged_in");
       handleLoginLink();
-      window.location.href = "index.html";
+      window.location.href = "home.html";
     };
   } else {
     loginLink.textContent = "Log In";
