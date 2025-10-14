@@ -225,5 +225,11 @@ nav a {
   display: block;
   z-index: 999;
 }
+.login-box {
+  width: 90%; 
+  max-width: 350px; 
+  padding: 30px 15px;
+  margin: 0 auto; 
+}
 
 }
