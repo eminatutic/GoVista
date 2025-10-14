@@ -31,7 +31,7 @@ function handleDestinationsAccess() {
         text: 'You need to log in first!',
         confirmButtonText: 'Go to login'
       }).then(() => {
-        window.location.href = "login.html";
+        window.location.href = "pages/login.html";
       });
     }
   });
