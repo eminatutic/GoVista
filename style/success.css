@@ -60,9 +60,9 @@ body {
 @media screen and (max-width: 768px) {
 
 body {
-  height: auto;      
-  min-height: 100vh;
+  padding: 0 20px;
   background-size: 400% 400%; 
+  min-height: auto;
 }
 
 .success-card {
@@ -79,7 +79,7 @@ body {
 .success-card p {
   font-size: 1rem;
   line-height: 1.4;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 #back-home {
