@@ -1,4 +1,4 @@
-const DESTINATIONS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/destinations";
+const DESTINATIONS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/destinations-sr";
 
 function renderDestination(destination) {
   if (!destination) return '';
@@ -7,9 +7,9 @@ function renderDestination(destination) {
       <img src="${destination.images[0]}" alt="${destination.name}">
       <div class="tour-info">
         <h3>${destination.name}</h3>
-        <p><strong>Country:</strong> ${destination.country}</p>
-        <p><strong>Duration:</strong> ${destination.duration} (${destination.start_date} - ${destination.end_date})</p>
-        <p class="tour-price"><strong>Price:</strong> ${destination.price}</p>
+        <p><strong>Država:</strong> ${destination.country}</p>
+        <p><strong>Trajanje:</strong> ${destination.duration} (${destination.start_date} - ${destination.end_date})</p>
+        <p class="tour-price"><strong>Cena:</strong> ${destination.price}</p>
         <p><strong>Hotel:</strong> ${destination.hotel}</p>
       </div>
     </div>
@@ -25,10 +25,9 @@ async function loadDestinations() {
     container.innerHTML = mainDestinations.map(dest => renderDestination(dest)).join("");
   } catch (err) {
     console.log(err);
-    container.innerHTML = "<p>Data could not be loaded</p>";
+    container.innerHTML = "<p>Podaci se ne mogu učitati.</p>";
   }
 }
-
 
 function exploreButton() {
   const exploreBtn = document.getElementById("exploreBtn");
@@ -40,14 +39,14 @@ function exploreButton() {
     if (!loggedIn) {
       Swal.fire({
         icon: 'warning',
-        title: 'Oops!',
-        text: 'You need to log in first!',
-        confirmButtonText: 'Go to login'
+        title: 'Ups!',
+        text: 'Morate se prvo prijaviti!',
+        confirmButtonText: 'Idi na prijavu'
       }).then(() => {
-        window.location.href = "../pages/login.html";
+        window.location.href = "../pages/login-sr.html";
       });
     } else {
-      window.location.href = "../pages/destinations.html";
+      window.location.href = "../pages/destinations-sr.html";
     }
   });
 }

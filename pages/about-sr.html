@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoVista | O nama</title>
+  <link rel="stylesheet" href="../style/about.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+<div class="wrapper">
+  <header class="header">
+    <div class="logo">
+      <img src="logo.png" alt="GoVista Logo" class="logo-img" />
+      <h1>GoVista</h1>
+    </div>
+
+    <div class="language-switch">
+      <a href="about.html" class="lang-link">ENG</a> | 
+      <a href="about-sr.html" class="lang-link active">SRP</a>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <nav>
+      <a href="home-sr.html">Početna</a>
+      <a href="destinations-sr.html" id="destinations-link">Destinacije</a>
+      <a href="about-sr.html" class="active">O nama</a>
+      <a href="contact-sr.html">Kontakt</a>
+      <a href="login-sr.html" id="log-in" class="log-in">Uloguj se</a>
+    </nav>
+  </header>
+
+  <div id="about" class="about">
+    <h2>O nama</h2>
+    <div class="about-content">
+      <div>
+        <div class="agency-info">
+          <img
+            src="https://res.cloudinary.com/dusyr10f2/image/upload/v1760021422/7172f06b-b83c-4d05-86bb-b56a22779bc3_bqawug.png"
+            alt="GoVista Agencija"
+            class="agency-img"
+          />
+          <p>
+            GoVista je vodeća turistička agencija posvećena stvaranju nezaboravnih iskustava za putnike širom sveta. Od zadivljujućih prirodnih
+            pejzaža do živopisnih gradskih tura, osiguravamo da svaki put bude jedinstven i nezaboravan.
+          </p>
+          <p>
+            Naša misija je da pružimo visokokvalitetne turističke usluge, personalizovane itinerere i stručne savete, kako bi vaše putovanje bilo
+            jednostavno i prijatno.
+          </p>
+        </div>
+      </div>
+      <div class="guides">
+        <h3>Upoznajte naše vodiče</h3>
+        <div class="guide-cards">
+          <div class="guide-card">
+            <img src="https://res.cloudinary.com/dusyr10f2/image/upload/v1760108280/brunette-business-woman-with-wavy-long-hair-blue-eyes-stands-holding-notebook-hands_197531-343_guzoze.jpg" alt="Vodič Alice" />
+            <h4>Alice Johnson</h4>
+            <p>Stručnjak za tropske destinacije i kulturne ture.</p>
+          </div>
+          <div class="guide-card">
+            <img src="https://res.cloudinary.com/dusyr10f2/image/upload/v1760108276/g_zha7sa.jpg" alt="Vodič Mark" />
+            <h4>Mark Thompson</h4>
+            <p>Specijalista za planinske i avanturističke izlete.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 GoVista. Sva prava zadržana.</p>
+  </footer>
+</div>
+
+<script src="../js/menu.js"></script>
+<script src="../js/auth-sr.js"></script>
+</body>
+</html>

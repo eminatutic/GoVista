@@ -175,6 +175,28 @@ nav a:not(.log-in):hover {
   line-height: 1.3;
 }
 
+
+.language-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px; 
+  font-size: 0.70rem;
+}
+
+.language-switch a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s;
+  margin: 0 5px;
+}
+
+.language-switch a:hover {
+  color: #1e90ff;
+}
+.lang-link.active {
+  font-weight: 700;
+  color: #0056b3; 
+}
 @media screen and (max-width: 768px) {
 
 body.no-scroll {
@@ -307,5 +329,10 @@ nav a {
 .guide-card p {
   font-size: 0.75rem;
 }
-
+.language-switch {
+  position: absolute;
+  top: 35px;       
+  right: 80px;      
+  font-size: 0.8rem;
+}
 }

@@ -57,7 +57,7 @@ nav a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-   font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
 nav a:not(.log-in):hover {
@@ -241,6 +241,27 @@ button:hover {
 
 
 
+.language-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px; 
+  font-size: 0.70rem;
+}
+
+.language-switch a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s;
+  margin: 0 5px;
+}
+
+.language-switch a:hover {
+  color: #1e90ff;
+}
+.lang-link.active {
+  font-weight: 700;
+  color: #0056b3; 
+}
 @media screen and (max-width: 768px) {
 
 body.no-scroll {
@@ -340,5 +361,10 @@ textarea {
   min-height: 120px; 
   resize: vertical;
 }
-
+.language-switch {
+  position: absolute;
+  top: 35px;       
+  right: 80px;      
+  font-size: 0.8rem;
+}
 }

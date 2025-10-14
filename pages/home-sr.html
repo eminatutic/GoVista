@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoVista | Početna</title>
+  <link rel="stylesheet" href="../style/home.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="logo.png" alt="GoVista Logo" class="logo-img" />
+    <section>
+      <h1>GoVista</h1>
+    </section>
+  </div>
+  
+  <div class="language-switch">
+    <a href="home.html" class="lang-link">ENG</a> | 
+    <a href="home-sr.html" class="lang-link active">SRP</a>
+  </div>
+
+
+  <button class="menu-toggle" id="menuToggle">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <nav>
+    <a href="home-sr.html" class="active">Početna</a>
+    <a href="destionations-sr.html" id="destinations-link">Destinacije</a>
+    <a href="about-sr.html">O nama</a>
+    <a href="contact-sr.html">Kontakt</a>
+    <a href="login-sr.html" id="log-in" class="log-in">Uloguj se</a>
+  </nav>
+</header>
+
+<!-- hero -->
+<section class="hero" id="home">
+  <img
+    src="https://res.cloudinary.com/dusyr10f2/image/upload/v1760088050/photo-1507525428034-b723cf961d3e_lpoirl.avif"
+    alt="Pogled na plažu"
+    class="hero-image"
+  />
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <h2>Pronađite svoje novo putovanje</h2>
+    <p>Otkrijte prelepe destinacije i doživite nezaboravne avanture sa GoVista.</p>
+    <button id="exploreBtn">Istraži destinacije</button>
+  </div>
+</section>
+
+<!-- destinations -->
+<section class="destinations" id="home">
+  <h2>Najpopularnije destinacije</h2>
+  <div id="toursContainer" class="tours-grid">
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- how it works -->
+<section class="how-it-works" id="how-it-works">
+  <h2>Kako funkcioniše</h2>
+  <div class="steps-container">
+
+    <div class="step">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <h3>1. Pregled destinacija</h3>
+      <p>Pretražite našu pažljivo odabranu listu destinacija i pronađite idealno mesto za odmor.</p>
+    </div>
+    <div class="step">
+      <i class="fa-solid fa-check-circle"></i>
+      <h3>2. Izaberite putovanje</h3>
+      <p>Odaberite destinaciju koja vam najviše odgovara i prilagodite putovanje svojim željama.</p>
+    </div>
+    <div class="step">
+      <i class="fa-solid fa-phone"></i>
+      <h3>3. Kontakt ili poseta</h3>
+      <p>Javite nam se online ili nas posetite u agenciji kako bismo zajednički pripremili vaše putovanje.</p>
+    </div>
+  </div>
+  <div class="contact-container">
+    <p>Želite da rezervišete online? Popunite naš kontakt formular i mi ćemo sve ostalo završiti za vas.</p>
+    <a href="contact.html" class="contact-button">Idi na kontakt formular</a>
+  </div>
+</section>
+
+<hr class="section-divider2">
+
+<section class="choose">
+  <h2>Zašto GoVista?</h2>
+  <div class="reasons-row">
+    <div class="reason">
+      <i class="fa-solid fa-globe"></i>
+      <h3>Putovanja širom sveta</h3>
+      <p>Pristup najboljim destinacijama sa pouzdanim lokalnim partnerima.</p>
+    </div>
+    <div class="reason">
+      <i class="fa-solid fa-hand-holding-heart"></i>
+      <h3>Putovanje po vašoj meri</h3>
+      <p>Svako putovanje prilagođavamo vašim željama i stilu putovanja.</p>
+    </div>
+    <div class="reason">
+      <i class="fa-solid fa-tags"></i>
+      <h3>Najbolje cene</h3>
+      <p>Uživajte u vrhunskim iskustvima po konkurentnim cenama.</p>
+    </div>
+  </div>
+</section>
+
+<script src="../js/menu.js"></script>
+<script src="../js/auth-sr.js"></script>
+<script src="../js/home-sr.js"></script>
+
+<footer>
+    <p>© 2025 GoVista. Sva prava zadržana.</p>
+</footer>
+</body>
+</html>

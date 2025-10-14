@@ -1,4 +1,4 @@
-const DESTINATIONS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/destinations";
+const DESTINATIONS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/destinations-sr";
 
 async function loadDestinations() {
   const container = document.getElementById("destinationsContainer");
@@ -9,7 +9,7 @@ async function loadDestinations() {
     initSliders();
   } catch (err) {
     console.error(err);
-    container.innerHTML = "<p>Data could not be loaded</p>";
+    container.innerHTML = "<p>Podaci se nisu mogli učitati</p>";
   }
 }
 
@@ -17,7 +17,11 @@ function renderDestinationCard(dest) {
   return `
     <div class="destination-card">
       <div class="image-slider">
-        ${dest.images?.map((img, i) => `<img src="${img}" class="${i === 0 ? "active" : ""}" alt="${dest.name}">`).join("") || "<p>No images available</p>"}
+        ${
+          dest.images?.map((img, i) => 
+            `<img src="${img}" class="${i === 0 ? "active" : ""}" alt="${dest.name}">`
+          ).join("") || "<p>Nema dostupnih slika</p>"
+        }
         <button class="slider-btn left">‹</button>
         <button class="slider-btn right">›</button>
       </div>
@@ -26,11 +30,11 @@ function renderDestinationCard(dest) {
         <h3>${dest.name}</h3>
         <p class="desc">${dest.description}</p>
         <div class="destination-details">
-          <span><strong>Country:</strong> ${dest.country}</span>
-          <span><strong>Duration:</strong> ${dest.duration} (${dest.start_date} - ${dest.end_date})</span>
+          <span><strong>Država:</strong> ${dest.country}</span>
+          <span><strong>Trajanje:</strong> ${dest.duration} (${dest.start_date} - ${dest.end_date})</span>
           <span><strong>Hotel:</strong> ${dest.hotel}</span>
         </div>
-        <p class="tour-price"><strong>Price:</strong> ${dest.price}</p>
+        <p class="tour-price"><strong>Cena:</strong> ${dest.price}</p>
       </div>
     </div>
   `;
