@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoVista | Otkrij svoju sledeću avanturu</title>
+  <link rel="stylesheet" href="../style/tours.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+<div class="wrapper">
+  <header class="header">
+    <div class="logo">
+      <!-- <img src="logo.png" alt="GoVista Logo" class="logo-img" /> -->
+      <section>
+      <h1>GoVista</h1>
+    </div>
+
+    <div class="language-switch">
+      <a href="tours.html" class="lang-link">ENG</a> | 
+      <a href="tours-sr.html" class="lang-link active">SRP</a>
+    </div>
+
+     <button class="menu-toggle" id="menuToggle">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <nav>
+      <a href="home-sr.html">Početna</a>
+      <a href="destinations-sr.html" class="active">Destinacije</a>
+      <a href="about-sr.html">O nama</a>
+      <a href="contact-sr.html">Kontakt</a>
+      <a href="login-sr.html" id="log-out" class="log-out">Odjavi se</a>
+    </nav>
+  </header>
+
+  <section class="destinations-page">
+    <h2>Istraži naše turističke ponude</h2>
+    <div id="destinationsContainer" class="destinations-grid"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 GoVista. Sva prava zadržana.</p>
+  </footer>
+</div>
+
+<script src="../js/menu.js"></script>
+<script src="../js/auth-sr.js"></script>
+<script src="../js/tours-sr.js"></script>
+</body>
+</html>

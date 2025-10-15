@@ -48,7 +48,7 @@ form.addEventListener("submit", async (e) => {
     const hashedPass = CryptoJS.MD5(password).toString(); 
     if (hashedPass === user.password) {
       localStorage.setItem("logged_in", "true");
-      window.location.href = "../pages/destinations.html";
+      window.location.href = "pages/home.html";
     } else {
       passwordError.textContent = "Incorrect password!";
     }

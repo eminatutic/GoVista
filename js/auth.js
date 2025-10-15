@@ -1,44 +1,14 @@
-function handleLoginLink() {
-  const loginLink = document.getElementById("log-in");
-  if (!loginLink) return;
-  const loggedIn = localStorage.getItem("logged_in") === "true";
-  if (loggedIn) {
-    loginLink.textContent = "Log Out";
-    loginLink.onclick = (e) => {
-      e.preventDefault();
-      localStorage.removeItem("logged_in");
-      handleLoginLink();
-      window.location.href = "../home.html";
-    };
-  } else {
-    loginLink.textContent = "Log In";
-    loginLink.href = "../pages/login.html";
-    loginLink.onclick = null;
-  }
-}
+const logoutBtn = document.getElementById("log-out");
 
-function handleDestinationsAccess() {
-  const destinationsLink = document.getElementById("destinations-link");
-  if (!destinationsLink) return;
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-  destinationsLink.addEventListener("click", function (e) {
-    const loggedIn = localStorage.getItem("logged_in") === "true";
-    if (!loggedIn) {
-      e.preventDefault();
-      Swal.fire({
-        icon: 'warning',
-        title: 'Oops!',
-        text: 'You need to log in first!',
-        confirmButtonText: 'Go to login'
-      }).then(() => {
-        window.location.href = "pages/login.html";
-      });
-    }
+  
+    localStorage.removeItem("logged_in");
+    localStorage.removeItem("user");
+
+
+    window.location.href = "../login.html";
   });
 }
-
-
-
-  handleLoginLink();
-  handleDestinationsAccess();
-

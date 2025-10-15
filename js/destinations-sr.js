@@ -1,64 +1,71 @@
-const DESTINATIONS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/destinations-sr";
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted || window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
+    window.location.reload();
+  }
+});
+if (localStorage.getItem("logged_in") !== "true") {
+  window.location.href = "../pages/login-sr.html";
+}
 
-async function loadDestinations() {
-  const container = document.getElementById("destinationsContainer");
+const DESTINATIONS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/destinations";
 
+async function loadCountriesAndTrips() {
   try {
     const destinations = await fetch(DESTINATIONS_URL).then(res => res.json());
-    container.innerHTML = destinations.map(dest => renderDestinationCard(dest)).join("");
-    initSliders();
+
+    const oneDayTrips = destinations.filter(dest => dest.duration === "1 day");
+    renderOneDayTrips(oneDayTrips);
+
+    const countries = [...new Set(destinations.map(dest => dest.country))];
+    renderCountries(countries);
+
   } catch (err) {
-    console.error(err);
-    container.innerHTML = "<p>Podaci se nisu mogli učitati</p>";
+    console.error("Greška pri učitavanju podataka:", err);
   }
 }
 
-function renderDestinationCard(dest) {
-  return `
-    <div class="destination-card">
-      <div class="image-slider">
-        ${
-          dest.images?.map((img, i) => 
-            `<img src="${img}" class="${i === 0 ? "active" : ""}" alt="${dest.name}">`
-          ).join("") || "<p>Nema dostupnih slika</p>"
-        }
-        <button class="slider-btn left">‹</button>
-        <button class="slider-btn right">›</button>
-      </div>
+function renderOneDayTrips(trips) {
+  const container = document.getElementById("oneDayTripsContainer");
 
-      <div class="destination-info">
-        <h3>${dest.name}</h3>
-        <p class="desc">${dest.description}</p>
-        <div class="destination-details">
-          <span><strong>Država:</strong> ${dest.country}</span>
-          <span><strong>Trajanje:</strong> ${dest.duration} (${dest.start_date} - ${dest.end_date})</span>
-          <span><strong>Hotel:</strong> ${dest.hotel}</span>
-        </div>
-        <p class="tour-price"><strong>Cena:</strong> ${dest.price}</p>
+  if (!container) return;
+
+  if (trips.length === 0) {
+    container.innerHTML = "<p>Trenutno nema dostupnih jednodnevnih putovanja.</p>";
+    return;
+  }
+
+  container.innerHTML = trips.map(trip => {
+    const imageUrl = trip.images && trip.images.length > 0
+      ? trip.images[0] 
+      : "Undefined";
+
+    return `
+      <div class="trip-card" onclick="openTrip('${trip.id}')">
+        <img src="${imageUrl}" alt="${trip.name}" />
+        <h3>${trip.name}</h3>
+        <p>${trip.country}</p>
+        <p><strong>Datum:</strong> ${trip.end_date}</p>
+        <p><strong>Cena:</strong> ${trip.price}</p>
       </div>
+    `;
+  }).join("");
+}
+
+
+function renderCountries(countries) {
+  const container = document.getElementById("countriesContainer");
+  container.innerHTML = countries.map(country => `
+    <div class="country-card" onclick="openCountry('${country}')">
+      <h3>${country}</h3>
     </div>
-  `;
+  `).join("");
 }
 
-function initSliders() {
-  document.querySelectorAll(".image-slider").forEach(slider => {
-    const images = slider.querySelectorAll("img");
-    let current = 0;
 
-    const updateImages = () => {
-      images.forEach((img, i) => img.classList.toggle("active", i === current));
-    };
 
-    slider.querySelector(".left").addEventListener("click", () => {
-      current = (current - 1 + images.length) % images.length;
-      updateImages();
-    });
-
-    slider.querySelector(".right").addEventListener("click", () => {
-      current = (current + 1) % images.length;
-      updateImages();
-    });
-  });
+function openCountry(country) {
+  localStorage.setItem("selectedCountry", country);
+  window.location.href = "tours.html";
 }
 
-loadDestinations();
+loadCountriesAndTrips();

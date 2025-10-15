@@ -1,52 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GoVista | Destinacije</title>
   <link rel="stylesheet" href="../style/destinations.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
 </head>
 <body>
-<div class="wrapper">
-  <header class="header">
-    <div class="logo">
-      <!-- <img src="logo.png" alt="GoVista Logo" class="logo-img" /> -->
-      <section>
-      <h1>GoVista</h1>
+  <div class="wrapper">
+    <header class="header">
+      <div class="logo">
+        <h1>GoVista</h1>
+      </div>
+
+      <div class="language-switch">
+        <a href="destinations.html" class="lang-link">ENG</a> | 
+        <a href="destinations-sr.html" class="lang-link active">SRP</a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <nav>
+        <a href="home-sr.html">Početna</a>
+        <a href="destinations-sr.html" id="destinations-link" class="active">Destinacije</a>
+        <a href="about-sr.html">O nama</a>
+        <a href="contact-sr.html">Kontakt</a>
+        <a href="login-sr.html" id="log-out" class="log-out">Odjavi se</a>
+      </nav>
+    </header>
+
+    <div class="cdest">
+      <section id="oneDaySection" class="highlight">
+        <h1>Izaberi svoju sledeću avanturu 🌍</h1> 
+
+        <h2>Tražiš izlet na jedan dan? 🌄</h2>
+        <p>Pripremili smo najbolje jednodnevne ture samo za tebe!</p>
+        <div id="oneDayTripsContainer" class="trip-grid"></div>
+      </section>
+
+      <section id="countriesSection">
+        <h2>Istraži destinacije po zemljama 🧭</h2>
+        <div id="countriesContainer" class="country-grid"></div>
+      </section>
     </div>
 
-    <div class="language-switch">
-      <a href="destinations.html" class="lang-link">ENG</a> | 
-      <a href="destinations-sr.html" class="lang-link active">SRP</a>
-    </div>
+    <footer>
+      <p>© 2025 GoVista. Sva prava zadržana.</p>
+    </footer>
+  </div>
 
-     <button class="menu-toggle" id="menuToggle">
-      <i class="fa-solid fa-bars"></i>
-    </button>
-    <nav>
-      <a href="home-sr.html">Početna</a>
-      <a href="destinations-sr.html" class="active">Destinacije</a>
-      <a href="about-sr.html">O nama</a>
-      <a href="contact-sr.html">Kontakt</a>
-      <a href="login-sr.html" id="log-in" class="log-in">Uloguj se</a>
-    </nav>
-  </header>
-
-  <section class="destinations-page">
-    <h2>Naši najlepši putnički paketi</h2>
-    <div id="destinationsContainer" class="destinations-grid">
-    
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 GoVista. Svi sadržaji i prava zadržani.</p>
-  </footer>
-</div>
-
-<script src="../js/menu.js"></script>
-<script src="../js/auth-sr.js"></script>
-<script src="../js/destinations-sr.js"></script>
+  <script src="../js/destinations-sr.js"></script>
+  <script src="../js/menu.js"></script>
+   <script src="../js/auth-sr.js"></script>
 </body>
 </html>

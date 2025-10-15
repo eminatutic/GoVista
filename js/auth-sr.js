@@ -1,41 +1,14 @@
-function handleLoginLink() {
-  const loginLink = document.getElementById("log-in");
-  if (!loginLink) return;
-  const loggedIn = localStorage.getItem("logged_in") === "true";
-  if (loggedIn) {
-    loginLink.textContent = "Odjavi se";
-    loginLink.onclick = (e) => {
-      e.preventDefault();
-      localStorage.removeItem("logged_in");
-      handleLoginLink();
-      window.location.href = "home-sr.html";
-    };
-  } else {
-    loginLink.textContent = "Uloguj se";
-    loginLink.href = "login-sr.html";
-    loginLink.onclick = null;
-  }
-}
+const logoutBtn = document.getElementById("log-out");
 
-function handleDestinationsAccess() {
-  const destinationsLink = document.getElementById("destinations-link");
-  if (!destinationsLink) return;
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-  destinationsLink.addEventListener("click", function (e) {
-    const loggedIn = localStorage.getItem("logged_in") === "true";
-    if (!loggedIn) {
-      e.preventDefault();
-      Swal.fire({
-        icon: 'warning',
-        title: 'Ups!',
-        text: 'Morate se prvo prijaviti!',
-        confirmButtonText: 'Idi na prijavu'
-      }).then(() => {
-        window.location.href = "login-sr.html";
-      });
-    }
+  
+    localStorage.removeItem("logged_in");
+    localStorage.removeItem("user");
+
+
+    window.location.href = "login-sr.html";
   });
 }
-
-handleLoginLink();
-handleDestinationsAccess();

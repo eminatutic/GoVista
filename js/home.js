@@ -1,5 +1,19 @@
-const DESTINATIONS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/destinations";
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted || window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
+    window.location.reload();
+  }
+});
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted || window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
+    window.location.reload();
+  }
+});
+if (localStorage.getItem("logged_in") !== "true") {
+  window.location.href = "../login.html";
+}
 
+
+const DESTINATIONS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/destinations";
 function renderDestination(destination) {
   if (!destination) return '';
   return `

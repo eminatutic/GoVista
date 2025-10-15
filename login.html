@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoVista | Prijava</title>
+  <title>GoVista | Login</title>
   <link rel="stylesheet" href="../style/login.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -11,7 +11,7 @@
 <body>
   <video autoplay muted loop id="bgVideo">
     <source src="https://res.cloudinary.com/dusyr10f2/video/upload/v1760530001/istockphoto-1310289427-640_adpp_is_visbqn.mp4" type="video/mp4">
-    Vaš pretraživač ne podržava HTML5 video.
+    Your browser does not support HTML5 video.
   </video>
 
   <div class="wrapper">
@@ -21,36 +21,36 @@
       </div>
 
       <div class="language-switch">
-        <a href="../login.html" class="lang-link">ENG</a> | 
-        <a href="login-sr.html" class="lang-link active">SRP</a>
+        <a href="login.html" class="lang-link active">ENG</a> | 
+        <a href="pages/login-sr.html" class="lang-link">SRP</a>
       </div>
     </header>
 
     <div class="hero-text">
-      <h1>Hej, tvoje novo putovanje počinje!</h1>
-      <p>Prijavi se i otkrij nova mesta sa <span>GoVista</span>.</p>
+      <h1>Hey there, your new journey begins</h1>
+      <p>Log in and discover new destinations with <span>GoVista</span>.</p>
     </div>
 
     <div class="login-container">
       <div class="login-box">
-        <h2>PRIJAVA</h2>
+        <h2>LOG IN</h2>
         <form id="login">
-          <label for="username">KORISNIČKO IME:</label>
-          <input type="text" id="username" placeholder="Unesite korisničko ime..." required />
+          <label for="username">USERNAME:</label>
+          <input type="text" id="username" placeholder="Enter your username..." required />
           <small id="username-error" class="error-message"></small>
 
-          <label for="password">LOZINKA:</label>
-          <input type="password" id="password" placeholder="Unesite lozinku..." required />
+          <label for="password">PASSWORD:</label>
+          <input type="password" id="password" placeholder="Enter your password..." required />
           <small id="password-error" class="error-message"></small>
 
-          <button type="submit">PRIJAVI SE</button>
+          <button type="submit">LOG IN</button>
         </form>
       </div>
     </div>
   </div>
 
-
+  <script src="../js/auth.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-  <script src="../js/login-sr.js"></script>
+  <script src="../js/login.js"></script>
 </body>
 </html>

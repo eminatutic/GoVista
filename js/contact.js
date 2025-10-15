@@ -1,3 +1,12 @@
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted || window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
+    window.location.reload();
+  }
+});
+if (localStorage.getItem("logged_in") !== "true") {
+  window.location.href = "../login.html";
+}
+
 const form = document.getElementById("contactForm");
 
 const fullNameInput = document.getElementById("fullName");
@@ -86,6 +95,6 @@ form.addEventListener("submit", (e) => {
   const messageValid = validateMessage();
 
   if (fullNameValid && packageValid && phoneValid && emailValid && messageValid) {
-    window.location.href = "success.html";
+    window.location.href = "../pages/success.html";
   }
 });
