@@ -5,6 +5,10 @@ body {
   color: #333;
   height: 100%;
 }
+
+
+
+
 footer {
   background: #fff;
   text-align: center;
@@ -74,9 +78,10 @@ header {
   gap: 10px;
 }
 
-.logo h1 {
-  font-size: 1.5rem;
-  color: #1e90ff;
+
+.logo img {
+  height: 70px; 
+  width: auto;  
 }
 .log-out{
   color: #f5a623;
@@ -359,9 +364,13 @@ nav a {
   font-size: 0.75rem;
 }
 .language-switch {
-  position: absolute;
-  top: 35px;       
-  right: 80px;      
-  font-size: 0.8rem;
+    position: relative;
+    top: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px; 
+    text-align: center;
+  }
+  .logo img {
+    height: 50px;  /* ovde se smanjuje visina logotipa */
 }
 }

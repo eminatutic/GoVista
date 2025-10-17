@@ -3,23 +3,12 @@ body {
   font-family: 'Poppins', sans-serif;
   background: #f5f7fa;
   color: #333;
-
-}
-.menu-toggle {
-  display: none;
-}
-.wrapper {
-  min-height: 100vh; 
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
+  min-height: 100vh;
 }
-footer {
-  background: #0056b3;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  color: #fff;
-}
+
+
 header {
   opacity: 0;
   margin-top: -50px;
@@ -35,7 +24,7 @@ header {
 }
 
 /* anim */
-.cdest, .highlight, #countriesSection {
+.attraction-card, .highlight, .trip-card {
   opacity: 0;
   animation: fadeSlideInOpacity 0.8s ease forwards;
 }
@@ -44,7 +33,7 @@ header {
   animation-delay: 0.4s;
 }
 
-#countriesSection {
+.trip-card{
   animation-delay: 0.6s;
 }
 
@@ -58,22 +47,39 @@ header {
 }
 
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+footer {
+  background: #fff;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: auto; 
+}
+
+
 .menu-toggle {
   display: none;
 }
 
+/* Active link */
 .active {
   font-weight: bold;
-  color: #fff;
-  border-bottom: 2px solid #f5a623;
+  color: #0056b3;
+  border-bottom: 2px solid #0056b3;
 }
 
-/* HEADER */
+/* HEADER - ostaje isti */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0056b3; 
+  background: #fff;
   padding: 20px 60px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -83,220 +89,315 @@ header {
   z-index: 999;
 }
 
-.logo h1 {
-  font-size: 1.5rem;
-  color: #fff; 
+/* Logo i navigacija */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.log-out{
+.logo img {
+  height: 70px;
+  width: auto;
+}
+
+.logo img {
+  height: 70px; 
+  width: auto;  
+}
+.log-out {
   color: #f5a623;
   font-weight: 800;
   font-size: 1.2rem;
   margin-left: 50px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.222);
+  border: none;
 }
 
 nav a {
   margin-left: 25px;
   text-decoration: none;
-  color: #fff; 
+  color: #333;
   font-weight: 500;
   font-size: 1.1rem;
-  transition: color 0.3s ease;
 }
 
 nav a:not(.log-out):hover {
-  color: #f5a623; 
+  color: #1e90ff;
 }
-
-
 .language-switch {
   position: absolute;
-  top: 15px;
-  right: 25px;
-  font-size: 0.8rem;
+  top: 20px;
+  right: 20px; 
+  font-size: 0.70rem;
 }
 
 .language-switch a {
   text-decoration: none;
-  color: #fff;
-  margin: 0 4px;
+  color: #333;
+  transition: color 0.2s;
+  margin: 0 5px;
 }
 
-.language-switch a:hover,
+.language-switch a:hover {
+  color: #1e90ff;
+}
 .lang-link.active {
-  color: #f5a623;
   font-weight: 700;
+  color: #0056b3; 
 }
 
-.cdest {
-  margin-top: 80px;
-  flex: 1;
-  
-}
-
-/* one-day */
+/* ---- ATRAKCIJE (highlight) ---- */
 .highlight {
-
   background-color: #0056b3;
-  color: white;
-  padding: 2.5rem 1rem;
-  
+  color: #fff;
+  padding: 40px 16px 120px 16px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex: 1;
+ margin-top: 100px; 
 }
+
 .highlight h1 {
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.222);
+  font-size: 3rem;
+  margin-bottom: 16px;
 }
 
-
-.highlight h2 {
-  color: #fff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.222);
+.highlight p {
+  font-size: 1rem;
+  margin-bottom: 24px;
 }
+
+/* ATRAKCIJE - CARD */
+.attractions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.attraction-card {
+  background-color: #1e90ff;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.attraction-card:hover {
+  background-color: #f5a623;
+  transform: translateY(-3px);
+}
+
 
 .trip-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 1.5rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  padding: 40px 20px;
+  margin-top: 20px;
 }
 
+/* Pojedinačna kartica */
 .trip-card {
-  background: white;
-  color: #333;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.44);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  width: 470px; 
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  
-}
-
-.trip-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
- 
-}
-
-.trip-card h3 {
-  margin: 10px 0 5px;
-  color: #1e90ff;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.222);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .trip-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
-/* SEKCIJA ZA DRŽAVE */
-#countriesSection {
-  padding: 2rem 1rem 4rem;
-  background-color: #f8fafc;
- 
-}
-
-#countriesSection h2 {
-  text-align: center;
-  margin-bottom: 2.8rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.222);
-}
-
-.country-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.country-card {
-  background: #1e90ff;
-  color: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: transform 0.3s ease, background 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-
-.country-card:hover {
-  background: #f5a623;
-  transform: scale(1.08);
-}
-
-@media screen and (max-width: 768px) {
-body.no-scroll {
-  overflow: hidden;
-}
-
-header {
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-}
-
-.logo h1 {
-  font-size: 1.3rem;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Slika */
+.trip-card img {
   width: 100%;
-  height: 100%;
-  background-color: #0056b3;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+/* Naziv destinacije */
+.trip-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #007bff;
+  text-align: center;
+  margin: 14px 0 8px 0;
+}
+
+/* Info sekcija (sve ispod naslova) */
+.trip-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  z-index: 9999;
+  justify-content: space-between;
+  background: #f9fbff;
+  padding: 14px 18px;
+  border-top: 1px solid #eee;
+  flex-grow: 1;
 }
 
-nav.active {
-  transform: translateX(0);
+/* Detalji (Best time, Start, End...) */
+.trip-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #444;
+  font-size: 0.9rem;
 }
 
-nav a {
-  margin: 20px 0;
-  font-size: 1.4rem;
+/* Svaka linija u detaljima */
+.trip-details p {
+  margin: 0;
+  padding: 2px 0;
+  border-bottom: 1px dashed #e3e8f0;
 }
 
-.menu-toggle {
-  background: none;
-  border: none;
-  color: #333;
-  font-size: 1.8rem;
-  cursor: pointer;
-  display: block;
-  z-index: 999;
+.trip-details p:last-child {
+  border-bottom: none;
 }
-.log-out {
-  margin-left: 0;
-  font-size: 1.3rem;
+
+/* Cena (odvojena dole) */
+.trip-price {
+  margin-top: 14px;
+  padding-top: 8px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #f5a623;
+  border-top: 2px solid #eee;
+  background-color: #fff;
+  border-radius: 0 0 12px 12px;
 }
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+  }
+
+  .logo {
+    gap: 5px;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 9999;
+  }
+
+  nav.active {
+    transform: translateX(0);
+  }
+
+  nav a {
+    display: block;
+    margin: 20px 0;
+    font-size: 1.4rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #333;
+    z-index: 1001;
+  }
+
+  .log-out {
+    margin-left: 0;
+    color: #f5a623;
+    font-size: 1.3rem;
+  }
+
 .language-switch {
-  position: absolute;
-  top: 35px;       
-  right: 80px;      
-  font-size: 0.8rem;
-}
-  .trip-card img {
-    height: 140px;
+    position: relative;
+    top: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px; 
+    text-align: center;
+  }
+  /* Adjust highlight section */
+  .highlight {
+    padding: 20px 16px 80px 16px;
   }
 
-  .country-card {
-    font-size: 0.95rem;
-    padding: 1rem;
+  /* Trip cards on small screens */
+  .trip-card {
+    width: 90%;
+    max-width: 320px;
   }
+
+  .trip-grid {
+    gap: 20px;
+    padding: 20px 15px;
+  }
+
+  .attractions-grid {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .attraction-card {
+    font-size: 0.9rem;
+    padding: 12px 18px;
+  }
+  /* Highlight section - smanjena margin/padding i manji naslov */
+.highlight {
+  background-color: #0056b3;
+  color: #fff;
+  padding: 20px 16px 100px 16px; /* smanjeno odozgo */
+  text-align: center;
+  flex: 1;
+  margin-top: 80px; /* smanjeno od headera */
+}
+
+.highlight h1 {
+  font-size: 2rem; /* manji naslov */
+  margin-bottom: 16px;
+}
+
+.highlight p {
+  font-size: 0.95rem; /* blago manji tekst */
+  margin-bottom: 20px;
+}
+.logo img {
+    height: 50px;  /* ovde se smanjuje visina logotipa */
+}
 }

@@ -4,6 +4,33 @@ body {
   color: #333;
   height: 100%;
 }
+header {
+  display: flex;
+  justify-content: center; 
+  background: none; 
+  
+ 
+  padding: 20px 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.logo-img {
+  max-width: 200px;
+  height: auto;
+}
+
 
 #bgVideo {
   position: fixed;
@@ -25,7 +52,9 @@ body {
   background: rgba(0,0,0,0.3); 
 }
 
+
 .hero-text {
+  margin-top: 100px;
   text-align: center;
   color: #fff;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.222);
@@ -183,4 +212,22 @@ body {
     right: 20px;      
     font-size: 0.8rem;
   }
+  .logo-img {
+    max-width: 120px;   /* manji logo */
+    height: auto;
+    margin-left: 15px;  /* malo pomeren ulevo */
+  }
+
+  header {
+    padding: 10px 15px; /* smanji padding oko headera */
+  }
+
+  .language-switch {
+    top: 20px;          /* podigni switch malo više */
+    right: 15px;         /* desno */
+    font-size: 0.8rem;
+  }
+  .logo img {
+    height: 50px;  /* ovde se smanjuje visina logotipa */
+}
 }

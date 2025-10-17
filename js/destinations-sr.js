@@ -1,71 +1,75 @@
-window.addEventListener("pageshow", (event) => {
-  if (event.persisted || window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
-    window.location.reload();
-  }
-});
-if (localStorage.getItem("logged_in") !== "true") {
-  window.location.href = "../pages/login-sr.html";
-}
+const API_URL = "https://vebdizajn-4.onrender.com/api/vebdizajn/egzoticne-destinacije";
+const toursContainer = document.getElementById("toursContainer");
+const attractionsContainer = document.getElementById("attractionsContainer");
 
-const DESTINATIONS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/destinations";
+let allTours = [];
 
-async function loadCountriesAndTrips() {
+const imagesMap = {
+  "bali, indonezija": "../Bali2.jpeg",
+  "maldivi": "../maldives2.jpg",
+  "maui, havaji": "../Hawaii.jpg"
+};
+
+const defaultImage = "../images/default.jpg";
+
+async function loadTours() {
   try {
-    const destinations = await fetch(DESTINATIONS_URL).then(res => res.json());
+    const res = await fetch(API_URL);
+    const data = await res.json();
 
-    const oneDayTrips = destinations.filter(dest => dest.duration === "1 day");
-    renderOneDayTrips(oneDayTrips);
+    allTours = data.map(t => {
+      const locKey = t.lokacija.trim().toLowerCase(); 
+      return {
+        ...t,
+        slika: imagesMap[locKey] || defaultImage
+      };
+    });
 
-    const countries = [...new Set(destinations.map(dest => dest.country))];
-    renderCountries(countries);
+    const attractions = [...new Set(allTours.flatMap(t => t.atrakcije))];
+    renderAttractions(attractions);
 
+    renderTours(allTours);
   } catch (err) {
-    console.error("Greška pri učitavanju podataka:", err);
+    console.error("Neuspešno učitavanje tura:", err);
+    toursContainer.innerHTML = "<p>Neuspešno učitavanje tura.</p>";
   }
 }
 
-function renderOneDayTrips(trips) {
-  const container = document.getElementById("oneDayTripsContainer");
+function renderAttractions(attractions) {
+  attractionsContainer.innerHTML = attractions.map(a => `
+    <div class="attraction-card" onclick="filterByAttraction('${a}')">${a}</div>
+  `).join("");
+}
 
-  if (!container) return;
+function filterByAttraction(attraction) {
+  const filtered = allTours.filter(t => t.atrakcije.includes(attraction));
+  renderTours(filtered);
+}
 
-  if (trips.length === 0) {
-    container.innerHTML = "<p>Trenutno nema dostupnih jednodnevnih putovanja.</p>";
+function renderTours(tours) {
+  if (tours.length === 0) {
+    toursContainer.innerHTML = "<p>Nema dostupnih tura za ovu atrakciju.</p>";
     return;
   }
 
-  container.innerHTML = trips.map(trip => {
-    const imageUrl = trip.images && trip.images.length > 0
-      ? trip.images[0] 
-      : "Undefined";
+  toursContainer.innerHTML = tours.map(t => `
+    <div class="trip-card">
+      <img src="${t.slika}" alt="${t.lokacija}"
+           onerror="this.src='${defaultImage}'"/>
+      <h3>${t.lokacija}</h3>
 
-    return `
-      <div class="trip-card" onclick="openTrip('${trip.id}')">
-        <img src="${imageUrl}" alt="${trip.name}" />
-        <h3>${trip.name}</h3>
-        <p>${trip.country}</p>
-        <p><strong>Datum:</strong> ${trip.end_date}</p>
-        <p><strong>Cena:</strong> ${trip.price}</p>
+      <div class="trip-info">
+        <div class="trip-details">
+          <p><strong>Najbolje vreme:</strong> ${t.najboljeVreme}</p>
+          <p><strong>Početak:</strong> ${t.pocetak}</p>
+          <p><strong>Kraj:</strong> ${t.kraj}</p>
+          <p><strong>Hotel:</strong> ${t.hotel}</p>
+          <p><strong>Prevoz:</strong> ${t.prevoz}</p>
+        </div>
+        <p class="trip-price"><strong>Cena:</strong> ${t.cena}</p>
       </div>
-    `;
-  }).join("");
-}
-
-
-function renderCountries(countries) {
-  const container = document.getElementById("countriesContainer");
-  container.innerHTML = countries.map(country => `
-    <div class="country-card" onclick="openCountry('${country}')">
-      <h3>${country}</h3>
     </div>
   `).join("");
 }
 
-
-
-function openCountry(country) {
-  localStorage.setItem("selectedCountry", country);
-  window.location.href = "tours.html";
-}
-
-loadCountriesAndTrips();
+loadTours();

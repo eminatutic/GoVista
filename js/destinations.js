@@ -1,73 +1,95 @@
-window.addEventListener("pageshow", (event) => {
-  if (event.persisted || window.performance.getEntriesByType("navigation")[0].type === "back_forward") {
-    window.location.reload();
+const API_URL = "https://vebdizajn-4.onrender.com/api/vebdizajn/egzoticne-destinacije";
+const toursContainer = document.getElementById("toursContainer");
+const attractionsContainer = document.getElementById("attractionsContainer");
+
+let allTours = [];
+
+const imagesMap = {
+  "bali, indonezija": "../Bali2.jpeg",
+  "maldivi": "../maldives2.jpg",
+  "maui, havaji": "../Hawaii.jpg"
+};
+
+const defaultImage = "../images/default.jpg";
+
+// Funkcija za prevođenje teksta na engleski koristeći Google Translate web endpoint
+async function translateText(text, targetLang = 'en') {
+  try {
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data[0].map(item => item[0]).join('');
+  } catch (err) {
+    console.error("Translation error:", err);
+    return text; // Ako prevod ne uspe, vrati original
   }
-});
-if (localStorage.getItem("logged_in") !== "true") {
-  window.location.href = "../login.html";
 }
 
-const DESTINATIONS_URL = "https://68e6913421dd31f22cc6310e.mockapi.io/destinations";
-
-async function loadCountriesAndTrips() {
+async function loadTours() {
   try {
-    const destinations = await fetch(DESTINATIONS_URL).then(res => res.json());
+    const res = await fetch(API_URL);
+    const data = await res.json();
 
+    // Mapiranje i prevođenje podataka pre renderovanja
+    allTours = await Promise.all(data.map(async t => {
+      const locKey = t.lokacija.trim().toLowerCase();
+      // Prevodi i tura i atrakcije
+      const translatedAttractions = await Promise.all(t.atrakcije.map(a => translateText(a)));
+      return {
+        ...t,
+        slika: imagesMap[locKey] || defaultImage,
+        najboljeVreme: await translateText(t.najboljeVreme),
+        hotel: await translateText(t.hotel),
+        prevoz: await translateText(t.prevoz),
+        atrakcije: translatedAttractions
+      };
+    }));
 
-    const oneDayTrips = destinations.filter(dest => dest.duration === "1 day");
-    renderOneDayTrips(oneDayTrips);
-
-  
-    const countries = [...new Set(destinations.map(dest => dest.country))];
-    renderCountries(countries);
+    const attractions = [...new Set(allTours.flatMap(t => t.atrakcije))];
+    renderAttractions(attractions);
+    renderTours(allTours);
 
   } catch (err) {
-    console.error("Error loading data:", err);
+    console.error("Failed to load tours:", err);
+    toursContainer.innerHTML = "<p>Failed to load tours.</p>";
   }
 }
 
-function renderOneDayTrips(trips) {
-  const container = document.getElementById("oneDayTripsContainer");
+function renderAttractions(attractions) {
+  attractionsContainer.innerHTML = attractions.map(a => `
+    <div class="attraction-card" onclick="filterByAttraction('${a}')">${a}</div>
+  `).join("");
+}
 
-  if (!container) return;
+function filterByAttraction(attraction) {
+  const filtered = allTours.filter(t => t.atrakcije.includes(attraction));
+  renderTours(filtered);
+}
 
-  if (trips.length === 0) {
-    container.innerHTML = "<p>No one-day trips available at the moment.</p>";
+function renderTours(tours) {
+  if (tours.length === 0) {
+    toursContainer.innerHTML = "<p>No tours found for this attraction.</p>";
     return;
   }
 
-  container.innerHTML = trips.map(trip => {
-    const imageUrl = trip.images && trip.images.length > 0
-      ? trip.images[0] 
-      : "Undefined";
+  toursContainer.innerHTML = tours.map(t => `
+    <div class="trip-card">
+      <img src="${t.slika}" alt="${t.lokacija}"
+           onerror="this.src='${defaultImage}'"/>
+      <h3>${t.lokacija}</h3>
 
-    return `
-      <div class="trip-card" onclick="openTrip('${trip.id}')">
-        <img src="${imageUrl}" alt="${trip.name}" />
-        <h3>${trip.name}</h3>
-        <p>${trip.country}</p>
-        <p><strong>Date:</strong> ${trip.end_date}</p>
-        <p><strong>Price:</strong> ${trip.price}</p>
+      <div class="trip-info">
+        <div class="trip-details">
+          <p><strong>Best time:</strong> ${t.najboljeVreme}</p>
+          <p><strong>Start:</strong> ${t.pocetak}</p>
+          <p><strong>End:</strong> ${t.kraj}</p>
+          <p><strong>Hotel:</strong> ${t.hotel}</p>
+          <p><strong>Transport:</strong> ${t.prevoz}</p>
+        </div>
+        <p class="trip-price"><strong>Price:</strong> ${t.cena}</p>
       </div>
-    `;
-  }).join("");
-}
-
-
-function renderCountries(countries) {
-  const container = document.getElementById("countriesContainer");
-  container.innerHTML = countries.map(country => `
-    <div class="country-card" onclick="openCountry('${country}')">
-      <h3>${country}</h3>
     </div>
   `).join("");
 }
 
-
-
-function openCountry(country) {
-  localStorage.setItem("selectedCountry", country);
-  window.location.href = "tours.html";
-}
-
-loadCountriesAndTrips();
+loadTours();

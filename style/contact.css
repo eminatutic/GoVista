@@ -75,9 +75,10 @@ header {
   gap: 10px;
 }
 
-.logo h1 {
-  font-size: 1.5rem;
-  color: #1e90ff;
+
+.logo img {
+  height: 70px; 
+  width: auto;  
 }
 
 nav a {
@@ -394,9 +395,13 @@ textarea {
   resize: vertical;
 }
 .language-switch {
-  position: absolute;
-  top: 35px;       
-  right: 80px;      
-  font-size: 0.8rem;
+    position: relative;
+    top: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px; 
+    text-align: center;
+  }
+  .logo img {
+    height: 50px;  /* ovde se smanjuje visina logotipa */
 }
 }

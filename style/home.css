@@ -77,13 +77,13 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
+  
 }
 
-.logo h1 {
-  font-size: 1.5rem;
-  color: #1e90ff;
+.logo img {
+  height: 70px; 
+  width: auto;  
 }
-
 .log-out{
   color: #f5a623;
   font-weight: 800;
@@ -414,9 +414,7 @@ header {
   gap: 5px;
 }
 
-.logo h1 {
-  font-size: 1.3rem;
-}
+
 
 nav {
   position: fixed;
@@ -465,12 +463,40 @@ nav a {
   
 }
 .language-switch {
-  position: absolute;
-  top: 35px;       
-  right: 80px;      
-  font-size: 0.8rem;
+    position: relative;
+    top: 15px;
+    margin-right: 10px;
+    margin-bottom: 20px; 
+    text-align: center;
+  }
+.hero h2 {
+  font-size: 1.8rem; /* smanjen naslov za mobilni */
 }
 
+.hero p {
+  font-size: 1rem;   /* manji tekst */
+  margin-bottom: 20px;
+}
+
+/* Destinations adjustments */
+.tours-grid {
+  grid-template-columns: 1fr; /* jedna kolona za veće kartice */
+  gap: 20px;
+  padding: 0 20px; 
+}
+
+.tour-card {
+  width: 100%;   /* kartica zauzima punu širinu */
+  height: auto;
+}
+
+.tour-card img {
+  height: 220px; /* veća visina slike u kartici */
+  object-fit: cover;
+}
+.logo img {
+    height: 50px;  /* ovde se smanjuje visina logotipa */
+}
 }
 
 
