@@ -23,7 +23,7 @@ header {
   }
 }
 
-/* anim */
+
 .attraction-card, .highlight, .trip-card {
   opacity: 0;
   animation: fadeSlideInOpacity 0.8s ease forwards;
@@ -101,10 +101,7 @@ header {
   width: auto;
 }
 
-.logo img {
-  height: 70px; 
-  width: auto;  
-}
+
 .log-out {
   color: #f5a623;
   font-weight: 800;
@@ -154,17 +151,20 @@ nav a:not(.log-out):hover {
   padding: 40px 16px 120px 16px;
   text-align: center;
   flex: 1;
- margin-top: 100px; 
+  margin-top: 100px; 
+   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.222);
 }
 
 .highlight h1 {
   font-size: 3rem;
   margin-bottom: 16px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.222);
 }
 
 .highlight p {
   font-size: 1rem;
   margin-bottom: 24px;
+
 }
 
 
