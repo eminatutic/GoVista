@@ -470,32 +470,32 @@ nav a {
     text-align: center;
   }
 .hero h2 {
-  font-size: 1.8rem; /* smanjen naslov za mobilni */
+  font-size: 1.8rem; 
 }
 
 .hero p {
-  font-size: 1rem;   /* manji tekst */
+  font-size: 1rem;   
   margin-bottom: 20px;
 }
 
-/* Destinations adjustments */
+
 .tours-grid {
-  grid-template-columns: 1fr; /* jedna kolona za veće kartice */
+  grid-template-columns: 1fr; 
   gap: 20px;
   padding: 0 20px; 
 }
 
 .tour-card {
-  width: 100%;   /* kartica zauzima punu širinu */
+  width: 100%;   
   height: auto;
 }
 
 .tour-card img {
-  height: 220px; /* veća visina slike u kartici */
+  height: 220px; 
   object-fit: cover;
 }
 .logo img {
-    height: 50px;  /* ovde se smanjuje visina logotipa */
+    height: 50px;  
 }
 }
 

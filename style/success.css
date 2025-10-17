@@ -1,3 +1,4 @@
+/* --- BODY I POZADINA --- */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -5,16 +6,37 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #1e90ff, #f5a623, #0056b3);
-  background-size: 600% 600%;
-  animation: gradientBG 10s ease infinite;
+  background: linear-gradient(135deg, #f5a623, #0056b3);
+  background-size: 400% 400%;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* --- ROTIRAJUĆE TAČKICE --- */
+body::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle, #f5a623 4px, transparent 4px),
+    radial-gradient(circle, #0056b3 4px, transparent 4px);
+  background-size: 50px 50px, 60px 60px; /* različite veličine za varijaciju */
+  background-position: 0 0, 30px 30px;  /* malo offset za razdvajanje */
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: rotateDots 25s linear infinite;
+  z-index: 0;
+  opacity: 0.5;
 }
+
+/* Animacija rotacije tačkica */
+@keyframes rotateDots {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 
 .success-card {
   background: rgba(255, 255, 255, 0.2); 
@@ -25,6 +47,8 @@ body {
   text-align: center;
   box-shadow: 0 8px 30px rgba(0,0,0,0.3);
   color: #fff;
+  position: relative;
+  z-index: 1; 
 }
 
 
@@ -32,7 +56,6 @@ body {
   font-size: 2.2rem;
   margin-bottom: 20px;
 }
-
 
 .success-card p {
   font-size: 1.2rem;
@@ -49,42 +72,42 @@ body {
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
-  
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #back-home:hover {
   background-color: rgba(255,255,255,0.5);
-  
+  transform: scale(1.05);
 }
+
 
 @media screen and (max-width: 768px) {
 
-body {
-  padding: 0 20px;
-  background-size: 400% 400%; 
-  min-height: auto;
-}
+  body {
+    padding: 0 20px;
+    min-height: auto;
+  }
 
-.success-card {
-  padding: 30px 20px;
-  max-width: 90%;
-  border-radius: 12px;
-}
+  .success-card {
+    padding: 30px 20px;
+    max-width: 90%;
+    border-radius: 12px;
+  }
 
-.success-card h1 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-}
+  .success-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
 
-.success-card p {
-  font-size: 1rem;
-  line-height: 1.4;
-  margin-bottom: 20px;
-}
+  .success-card p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
 
-#back-home {
-  width: 50%;
-  padding: 12px;
-  font-size: 1rem;
-}
+  #back-home {
+    width: 50%;
+    padding: 12px;
+    font-size: 1rem;
+  }
 }

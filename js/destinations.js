@@ -12,7 +12,7 @@ const imagesMap = {
 
 const defaultImage = "../images/default.jpg";
 
-// Funkcija za prevođenje teksta na engleski koristeći Google Translate web endpoint
+
 async function translateText(text, targetLang = 'en') {
   try {
     const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
@@ -21,7 +21,7 @@ async function translateText(text, targetLang = 'en') {
     return data[0].map(item => item[0]).join('');
   } catch (err) {
     console.error("Translation error:", err);
-    return text; // Ako prevod ne uspe, vrati original
+    return text; 
   }
 }
 
@@ -30,10 +30,9 @@ async function loadTours() {
     const res = await fetch(API_URL);
     const data = await res.json();
 
-    // Mapiranje i prevođenje podataka pre renderovanja
     allTours = await Promise.all(data.map(async t => {
       const locKey = t.lokacija.trim().toLowerCase();
-      // Prevodi i tura i atrakcije
+     
       const translatedAttractions = await Promise.all(t.atrakcije.map(a => translateText(a)));
       return {
         ...t,
